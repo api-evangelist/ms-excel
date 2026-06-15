@@ -1,0 +1,387 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Graph Excel API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Create a workbook session",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/createSession",
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a workbook session"
+    },
+    {
+      "info": {
+        "name": "List worksheets in a workbook",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List worksheets in a workbook"
+    },
+    {
+      "info": {
+        "name": "Add a new worksheet",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Add a new worksheet"
+    },
+    {
+      "info": {
+        "name": "Get a worksheet by id or name",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets/:worksheet-id",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "worksheet-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get a worksheet by id or name"
+    },
+    {
+      "info": {
+        "name": "Update worksheet properties",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets/:worksheet-id",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "worksheet-id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Update worksheet properties"
+    },
+    {
+      "info": {
+        "name": "Delete a worksheet",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets/:worksheet-id",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "worksheet-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete a worksheet"
+    },
+    {
+      "info": {
+        "name": "List charts in a worksheet",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets/:worksheet-id/charts",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "worksheet-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List charts in a worksheet"
+    },
+    {
+      "info": {
+        "name": "Add a chart to a worksheet",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets/:worksheet-id/charts/Add",
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "worksheet-id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Add a chart to a worksheet"
+    },
+    {
+      "info": {
+        "name": "List tables in a worksheet",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/worksheets/:worksheet-id/tables",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "worksheet-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List tables in a worksheet"
+    },
+    {
+      "info": {
+        "name": "List rows in a table",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/tables/:table-id/rows",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "table-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List rows in a table"
+    },
+    {
+      "info": {
+        "name": "Add a row to a table",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/tables/:table-id/rows",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "table-id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Add a row to a table"
+    },
+    {
+      "info": {
+        "name": "List columns in a table",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/tables/:table-id/columns",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "table-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List columns in a table"
+    },
+    {
+      "info": {
+        "name": "List named items in a workbook",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://graph.microsoft.com/v1.0/me/drive/items/:item-id/workbook/names",
+        "headers": [
+          {
+            "name": "workbook-session-id",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "item-id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List named items in a workbook"
+    }
+  ],
+  "bundled": true
+}

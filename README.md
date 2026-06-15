@@ -2,7 +2,7 @@
 
 APIs for interacting with Microsoft Excel files and workbooks through Microsoft Graph.
 
-**URL:** [Visit APIs.json URL](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/excel)
+**APIs.json:** [https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/excel](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/resources/excel)
 
 ## Scope
 
@@ -27,9 +27,8 @@ APIs for interacting with Microsoft Excel files and workbooks through Microsoft 
 
 REST API for accessing Excel workbooks stored in OneDrive, SharePoint, and other Microsoft 365 storage locations.
 
-**Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/excel](https://learn.microsoft.com/en-us/graph/api/resources/excel)
-
-**Base URL:** https://graph.microsoft.com/v1.0
+- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/excel](https://learn.microsoft.com/en-us/graph/api/resources/excel)
+- **Base URL:** `https://graph.microsoft.com/v1.0`
 
 #### Tags
 
@@ -42,20 +41,22 @@ REST API for accessing Excel workbooks stored in OneDrive, SharePoint, and other
 #### Properties
 
 - [Documentation](https://learn.microsoft.com/en-us/graph/api/resources/excel)
-- [OpenAPI](https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml)
+- [OpenAPI](https://raw.githubusercontent.com/microsoftgraph/msgraph-metadata/master/openapi/v1.0/openapi.yaml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Authentication](https://learn.microsoft.com/en-us/graph/auth/)
 - [Getting Started](https://learn.microsoft.com/en-us/graph/api/resources/excel#get-started)
+- [Postman Collection](collections/ms-excel.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/ms-excel.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ## Common Properties
 
+- [GitHub Organization](https://github.com/microsoft)
 - [Terms of Service](https://www.microsoft.com/en-us/legal/terms-of-use)
 - [Privacy Policy](https://privacy.microsoft.com/en-us/privacystatement)
 - [Support](https://developer.microsoft.com/en-us/graph/support)
 - [Blog](https://developer.microsoft.com/en-us/graph/blogs/)
-- [Status](https://status.dev.microsoft.com/)
+- [Status Page](https://status.dev.microsoft.com/)
 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com
