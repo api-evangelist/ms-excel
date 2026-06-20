@@ -4,7 +4,7 @@ description: >-
   APIs for interacting with Microsoft Excel files and workbooks through Microsoft
   Graph.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Data Analysis
   - Excel
@@ -20,7 +20,7 @@ apis:
     description: >-
       REST API for accessing Excel workbooks stored in OneDrive, SharePoint, and other
       Microsoft 365 storage locations.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
     baseURL: https://graph.microsoft.com/v1.0
     tags:
