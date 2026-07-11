@@ -39,6 +39,8 @@ apis:
       - type: GettingStarted
         url: https://learn.microsoft.com/en-us/graph/api/resources/excel#get-started
 common:
+  - type: OAuthScopes
+    url: scopes/ms-excel-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/microsoft
   - type: TermsOfService
