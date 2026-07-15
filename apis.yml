@@ -39,6 +39,8 @@ apis:
       - type: GettingStarted
         url: https://learn.microsoft.com/en-us/graph/api/resources/excel#get-started
 common:
+  - type: AgenticAccess
+    url: agentic-access/ms-excel-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/ms-excel-vulnerability-disclosure.yml
   - type: DomainSecurity
