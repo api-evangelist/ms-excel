@@ -1,0 +1,354 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Graph Excel API
+  description: |
+    Microsoft Graph REST API for reading and modifying Excel workbooks stored in
+    OneDrive for Business, SharePoint, or Group drives. Supports worksheets,
+    tables, charts, ranges, named items, and workbook functions. Authentication
+    uses the Microsoft identity platform (OAuth 2.0) with a bearer access token.
+    Requires Files.Read or Files.ReadWrite permission scopes.
+  version: "1.0"
+  contact:
+    name: Microsoft Graph
+    url: https://developer.microsoft.com/graph
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0
+security:
+  - oauth2: []
+paths:
+  /me/drive/items/{item-id}/workbook/createSession:
+    post:
+      operationId: createWorkbookSession
+      summary: Create a workbook session
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                persistChanges:
+                  type: boolean
+      responses:
+        '201':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionInfo'
+  /me/drive/items/{item-id}/workbook/worksheets:
+    get:
+      operationId: listWorksheets
+      summary: List worksheets in a workbook
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of worksheets
+    post:
+      operationId: addWorksheet
+      summary: Add a new worksheet
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Worksheet created
+  /me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}:
+    get:
+      operationId: getWorksheet
+      summary: Get a worksheet by id or name
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: worksheet-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Worksheet
+    patch:
+      operationId: updateWorksheet
+      summary: Update worksheet properties
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: worksheet-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                position:
+                  type: integer
+      responses:
+        '200':
+          description: Worksheet updated
+    delete:
+      operationId: deleteWorksheet
+      summary: Delete a worksheet
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: worksheet-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+  /me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/charts:
+    get:
+      operationId: listCharts
+      summary: List charts in a worksheet
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: worksheet-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of charts
+  /me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/charts/Add:
+    post:
+      operationId: addChart
+      summary: Add a chart to a worksheet
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: worksheet-id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                sourcedata:
+                  type: string
+                seriesby:
+                  type: string
+      responses:
+        '201':
+          description: Chart created
+  /me/drive/items/{item-id}/workbook/worksheets/{worksheet-id}/tables:
+    get:
+      operationId: listTables
+      summary: List tables in a worksheet
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: worksheet-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of tables
+  /me/drive/items/{item-id}/workbook/tables/{table-id}/rows:
+    get:
+      operationId: listTableRows
+      summary: List rows in a table
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: table-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of rows
+    post:
+      operationId: addTableRow
+      summary: Add a row to a table
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: table-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                values:
+                  type: array
+                index:
+                  type: integer
+                  nullable: true
+      responses:
+        '201':
+          description: Row added
+  /me/drive/items/{item-id}/workbook/tables/{table-id}/columns:
+    get:
+      operationId: listTableColumns
+      summary: List columns in a table
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: table-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of columns
+  /me/drive/items/{item-id}/workbook/names:
+    get:
+      operationId: listNamedItems
+      summary: List named items in a workbook
+      parameters:
+        - in: path
+          name: item-id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: workbook-session-id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collection of named items
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft identity platform OAuth 2.0
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.Read: Read user files
+            Files.ReadWrite: Read and write user files
+  schemas:
+    SessionInfo:
+      type: object
+      properties:
+        id:
+          type: string
+        persistChanges:
+          type: boolean

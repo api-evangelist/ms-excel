@@ -1,0 +1,14 @@
+{
+  "provider": "ms-excel",
+  "sources": [
+    "ms-excel-me-api-openapi.yml"
+  ],
+  "outputs": [
+    "ms-excel-me-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
